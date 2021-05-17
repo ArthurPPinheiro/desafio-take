@@ -6,7 +6,7 @@ var users = [
     {id: 2, name: "Sarah", email: "sarah@mail.com", password: "sarah123"}
 ];
 
-app.get('/', function(){
+app.get('/api/users', function(req, res){
     res.json(users);
 });
 
