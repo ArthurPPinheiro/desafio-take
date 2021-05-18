@@ -12,12 +12,12 @@ request(options, (error, response, body) => {
     github = body;
 })
 
-var api_return = Object.keys(github).map((key) => [key, github[key]]);;
+var api_return = JSON.parse(github);
 
 console.log(api_return);
 
 app.get('/api/github', function(req, res){
-    res.json(github);
+    res.json("");
 });
 
 app.listen(process.env.PORT || 3000);
