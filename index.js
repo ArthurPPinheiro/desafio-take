@@ -9,12 +9,11 @@ var options = {
 };
 
 request(options, (error, response, body) => {
-    console.log(body);
-    console.log(response)
+    github = body;
 })
 
 app.get('/api/github', function(req, res){
-    res.json('');
+    res.json(body);
 });
 
 app.listen(process.env.PORT || 3000);
