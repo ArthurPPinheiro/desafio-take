@@ -12,12 +12,8 @@ request(options, (error, response, body) => {
     github = body;
 });
 
-api_return = [];
-for(var i in github)
-    api_return.push([i, github [i]]);
-
 app.get('/api/github', function(req, res){
-    res.json(api_retorno);
+    res.json(github);
 });
 
 app.listen(process.env.PORT || 3000);
