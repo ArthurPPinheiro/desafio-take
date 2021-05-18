@@ -9,7 +9,7 @@ request(`https://api.github.com/repos/takenet/ServiceStack.Text`, (error, respon
 })
 
 app.get('/api/github', function(req, res){
-    res.json(github, github_response);
+    res.json(github_response);
 });
 
 app.listen(process.env.PORT || 3000);
