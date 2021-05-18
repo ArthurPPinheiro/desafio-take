@@ -7,7 +7,7 @@ const path = 'repos/takenet/ServiceStack.Text';
 let github = '';
 request(`https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=5&page=1`, (error, response, body) => {
     console.log(body);
-    github = body;
+    console.log(response)
 })
 console.log(body);
 app.get('/api/github', function(req, res){
