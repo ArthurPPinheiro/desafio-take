@@ -4,8 +4,8 @@ const request = require('request');
 
 const hostname = 'https://api.github.com/';
 const path = 'repos/takenet/ServiceStack.Text';
+let github = '';
 request(`https://api.github.com/repos/takenet/ServiceStack.Text`, (error, response, body) => {
-    let github = '';
     github = body;
 })
 
