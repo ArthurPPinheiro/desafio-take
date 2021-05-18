@@ -12,7 +12,8 @@ request(options, (error, response, body) => {
     github = body;
 });
 
-var api_return = Object.keys(github).map((key) => [key, github[key]]);
+for(var i in github)
+    api_return.push([i, github [i]]);
 
 console.log(api_return);
 
