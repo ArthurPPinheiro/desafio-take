@@ -10,7 +10,7 @@ var options = {
 
 request(options, (error, response, body) => {
     github = body;
-})
+});
 
 var api_return = Object.keys(github).map((key) => [key, github[key]]);
 
