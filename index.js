@@ -1,13 +1,15 @@
 const express = require('express');
 const app = express();
 
-var users = [
-    {id: 1, name: "John", email: "john@mail.com", password: "john123"},
-    {id: 2, name: "Sarah", email: "sarah@mail.com", password: "sarah123"}
-];
+const hostname = 'https://api.github.com/';
+const path = 'repos/takenet/ServiceStack.Text';
 
-app.get('/api/users', function(req, res){
-    res.json(users);
+request(`${hostname}${path}`, (error, response, body) => {
+    var github = body;
+})
+
+app.get('/api/github', function(req, res){
+    res.json(github);
 });
 
 app.listen(process.env.PORT || 3000);
