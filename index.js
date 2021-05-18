@@ -12,6 +12,10 @@ request(options, (error, response, body) => {
     github = body;
 })
 
+var response = JSON.parse(github);
+
+console.log(response);
+
 app.get('/api/github', function(req, res){
     res.json(github);
 });
