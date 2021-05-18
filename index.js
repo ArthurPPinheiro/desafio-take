@@ -16,10 +16,8 @@ api_return = [];
 for(var i in github)
     api_return.push([i, github [i]]);
 
-console.log(api_return);
-
 app.get('/api/github', function(req, res){
-    res.json("");
+    res.json(api_retorno);
 });
 
 app.listen(process.env.PORT || 3000);
