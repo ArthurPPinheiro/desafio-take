@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const request = require('request');
 
 const hostname = 'https://api.github.com/';
 const path = 'repos/takenet/ServiceStack.Text';
