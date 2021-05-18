@@ -12,6 +12,7 @@ request(options, (error, response, body) => {
     github = body;
 });
 
+api_return = [];
 for(var i in github)
     api_return.push([i, github [i]]);
 
