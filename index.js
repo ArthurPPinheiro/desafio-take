@@ -17,7 +17,7 @@ var api_return = JSON.parse(JSON.stringify(github));
 console.log(api_return);
 
 app.get('/api/github', function(req, res){
-    res.json(api_return.length);
+    res.json(api_return);
 });
 
 app.listen(process.env.PORT || 3000);
