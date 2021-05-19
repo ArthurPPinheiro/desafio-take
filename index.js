@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const request = require('request');
 
-let github = '';
+var github = '';
+var api_return = [];
 var options = {
     url: 'https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=5&page=1',
     headers: {'user-agent': 'node.js'},
@@ -11,14 +12,18 @@ var options = {
 
 request(options, function(error, response, body) {
     github = body[1];
+    for (let i = 0; i < body.length; i++) {
+        api_return.push({
+            image: body[i].owner.avatar_url,
+            name: body[i].name,
+            description: body[i].description,
+        });
+        
+    }
 });
 
-// var api_return = JSON.parse(JSON.stringify(github));
-
-console.log(github);
-
 app.get('/api/github', function(req, res){
-    res.json(github);
+    res.json(api_retorno);
 });
 
 app.listen(process.env.PORT || 3000);
