@@ -23,7 +23,7 @@ request(options, function(error, response, body) {
 });
 
 app.get('/api/github', function(req, res){
-    res.json(api_retorno);
+    res.json(api_retorn);
 });
 
 app.listen(process.env.PORT || 3000);
