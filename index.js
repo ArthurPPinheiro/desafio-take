@@ -6,18 +6,19 @@ let github = '';
 var options = {
     url: 'https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=5&page=1',
     headers: {'user-agent': 'node.js'},
+    json: true
 };
 
-request(options, (error, response, body) => {
-    github = body;
+request(options, function(error, response, body) {
+    github = body[1];
 });
 
-var api_return = JSON.parse(JSON.stringify(github));
+// var api_return = JSON.parse(JSON.stringify(github));
 
-console.log(api_return);
+console.log(github);
 
 app.get('/api/github', function(req, res){
-    res.json(api_return);
+    res.json(github);
 });
 
 app.listen(process.env.PORT || 3000);
