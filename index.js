@@ -3,20 +3,61 @@ const app = express();
 const request = require('request');
 
 var github = '';
-var api_return = [];
+var api_return = [
+    type => "application/vnd.lime.collection+json",
+    content => [
+        itemType => "application/vnd.lime.document-select+json",
+        items => []
+    ]
+];
 var options = {
     url: 'https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=5&page=1',
     headers: {'user-agent': 'node.js'},
     json: true
 };
 
+{
+  ,
+    "type": "application/vnd.lime.collection+json",
+    "content": {
+        "itemType": "application/vnd.lime.document-select+json",
+        "items": [
+            {
+                "header": {
+                    "type": "application/vnd.lime.media-link+json",
+                    "value": {
+                        "title": "Title",
+                        "text": "This is a first item",
+                        "type": "image/jpeg",
+                        "uri": "http://www.isharearena.com/wp-content/uploads/2012/12/wallpaper-281049.jpg"
+                    }
+                }
+            },
+            {
+                "header": {
+                    "type": "application/vnd.lime.media-link+json",
+                    "value": {
+                        "title": "Title 2",
+                        "text": "This is another item",
+                        "type": "image/jpeg",
+                        "uri": "http://www.freedigitalphotos.net/images/img/homepage/87357.jpg"
+                    }
+                }
+            }
+        ]
+    }
+}
+
 request(options, function(error, response, body) {
     github = body[1];
     for (let i = 0; i < body.length; i++) {
-        api_return.push({
-            image: body[i].owner.avatar_url,
-            name: body[i].name,
-            description: body[i].description,
+        api_return.content.items.push({
+            header: {
+                title: body[i].name,
+                text: body[i].description,
+                type: "image/jpeg",
+                uri: body[i].owner.avatar_url
+            }
         });
         
     }
