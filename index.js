@@ -22,7 +22,7 @@ request(options, function(error, response, body) {
     }
 });
 
-app.get('/api/github', function(req, res){
+app.post('/api/github', function(req, res){
     res.json(api_return);
 });
 
