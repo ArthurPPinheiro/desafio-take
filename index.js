@@ -21,10 +21,13 @@ request(options, function(error, response, body) {
     for (let i = 0; i < body.length; i++) {
         api_return['content']['items'].push({
             header: {
-                title: body[i].name,
-                text: body[i].description,
-                type: "image/jpeg",
-                uri: body[i].owner.avatar_url
+                type: "application/vnd.lime.media-link+json",
+                value: {
+                    title: body[i].name,
+                    text: body[i].description,
+                    type: "image/jpeg",
+                    uri: body[i].owner.avatar_url
+                }
             }
         });
         
