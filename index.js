@@ -35,7 +35,7 @@ request(options, function(error, response, body) {
 });
 
 app.post('/api/github', function(req, res){
-    res.statusCode(402);
+    res.status(402);
     res.json(api_return);
 });
 
