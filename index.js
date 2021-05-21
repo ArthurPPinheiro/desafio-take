@@ -57,7 +57,7 @@ request(options, function(error, response, body) {
 
 app.post('/api/github', function(req, res){
     res.status(402);
-    res.json(api_return);
+    res.send(api_return);
 });
 
 app.listen(process.env.PORT || 3000);
