@@ -49,6 +49,7 @@ request(options, function(error, response, body) {
                         }
                     }
                 }
+            ]
         });
         
     }
