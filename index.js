@@ -4,11 +4,8 @@ const request = require('request');
 
 var github = '';
 var api_return = {
-    'type': "application/vnd.lime.collection+json",
-    'content': {
-        'itemType': "application/vnd.lime.document-select+json",
-        'items': []
-    }
+    'itemType': "application/vnd.lime.document-select+json",
+    'items': []
 };
 var options = {
     url: 'https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=5&page=1',
@@ -19,7 +16,7 @@ var options = {
 request(options, function(error, response, body) {
     github = body[1];
     for (let i = 0; i < body.length; i++) {
-        api_return['content']['items'].push({
+        api_return['items'].push({
             header: {
                 type: "application/vnd.lime.media-link+json",
                 value: {
