@@ -26,30 +26,6 @@ request(options, function(error, response, body) {
                     uri: body[i].owner.avatar_url
                 }
             },
-            options: [
-                {
-                    label: {
-                        type: "application/vnd.lime.web-link+json",
-                        value: {
-                            title: "Link",
-                            uri: "http://www.adoteumgatinho.org.br/"
-                        }
-                    }
-                },
-                {
-                    label: {
-                        type: "text/plain",
-                        value: "Text 1"
-                    },
-                    value: {
-                        type: "application/json",
-                        value: {
-                            key1: "value1",
-                            key2: 2
-                        }
-                    }
-                }
-            ]
         });
         
     }
